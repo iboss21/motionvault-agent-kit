@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "motionvault",
+  "version": "0.1.0",
+  "description": "Cinematic website engineering, original template discovery, motion planning, design systems, and source delivery for AI agents.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "MotionVault",
+        "shortDescription": "Build cinematic websites with motion",
+        "longDescription": "Discover original templates and design systems, plan cinematic scroll stories, generate working GLSL and pinned-scroll code, and verify responsive source delivery.",
+        "developerName": "MotionVault",
+        "category": "Developer Tools",
+        "capabilities": ["Read"],
+        "websiteURL": "https://motionvault.site",
+        "privacyPolicyURL": "https://motionvault.site/license",
+        "termsOfServiceURL": "https://motionvault.site/license",
+        "brandColor": "#F44525",
+        "composerIcon": "./assets/motionvault.svg",
+        "logo": "./assets/motionvault.svg",
+        "defaultPrompt": ["Build a cinematic website with a five-stage scroll story.", "Find a MotionVault design system and apply its DESIGN.md."]
+      }
+    }
+  }
+}

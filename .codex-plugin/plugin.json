@@ -1,0 +1,20 @@
+{
+  "name": "motionvault",
+  "version": "0.1.0",
+  "description": "Cinematic website and motion engineering tools from MotionVault.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "MotionVault",
+    "shortDescription": "Build cinematic websites with motion",
+    "developerName": "MotionVault",
+    "category": "Developer Tools",
+    "capabilities": ["Read"],
+    "websiteURL": "https://motionvault.site",
+    "privacyPolicyURL": "https://motionvault.site/license",
+    "termsOfServiceURL": "https://motionvault.site/license",
+    "composerIcon": "./assets/motionvault.svg",
+    "logo": "./assets/motionvault.svg",
+    "brandColor": "#F44525"
+  }
+}

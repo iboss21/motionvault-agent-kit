@@ -1,0 +1,18 @@
+{
+  "name": "motionvault-official",
+  "owner": {
+    "name": "MotionVault",
+    "url": "https://motionvault.site"
+  },
+  "plugins": [
+    {
+      "name": "motionvault",
+      "source": "./",
+      "description": "MotionVault's official cinematic website and motion engineering agent toolkit.",
+      "version": "0.1.0"
+    }
+  ],
+  "metadata": {
+    "description": "First-party cinematic website and motion engineering tools from MotionVault."
+  }
+}

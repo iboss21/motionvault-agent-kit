@@ -1,0 +1,47 @@
+{
+  "name": "motionvault-agent-kit",
+  "version": "0.1.0",
+  "description": "Read-only MotionVault template discovery and cinematic motion engineering MCP server",
+  "type": "module",
+  "bin": {
+    "motionvault-agent-kit": "./src/cli.mjs"
+  },
+  "exports": {
+    ".": "./src/server.mjs",
+    "./tools": "./src/tools.mjs"
+  },
+  "files": [
+    "src",
+    "data",
+    "README.md",
+    "LICENSE",
+    "skills",
+    "agents",
+    "scripts",
+    ".claude-plugin",
+    ".codex-plugin",
+    "plugin.json",
+    "mcp.json",
+    ".mcp.json",
+    "assets"
+  ],
+  "scripts": {
+    "start": "node src/cli.mjs --stdio",
+    "start:http": "node src/cli.mjs --http",
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/cli.mjs && node --check src/server.mjs && node --check src/tools.mjs && node --check src/advanced-tools.mjs && node scripts/build-capabilities.mjs --check",
+    "capabilities": "node scripts/build-agent-guides.mjs && node scripts/build-capabilities.mjs"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "zod": "4.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iboss21/motionvault-agent-kit.git"
+  },
+  "license": "MIT"
+}

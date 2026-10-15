@@ -1,0 +1,12 @@
+{
+  "name": "motionvault",
+  "version": "0.1.0",
+  "description": "Original cinematic templates, design systems, motion engineering tools, and practical source delivery.",
+  "author": { "name": "MotionVault", "url": "https://motionvault.site" },
+  "homepage": "https://motionvault.site",
+  "repository": "https://github.com/iboss21/motionvault-agent-kit",
+  "license": "MIT",
+  "keywords": ["cinematic", "webgl", "threejs", "motion", "templates", "design-systems", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

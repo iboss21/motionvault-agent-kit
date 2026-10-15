@@ -1,0 +1,1863 @@
+{
+  "schemaVersion": 1,
+  "name": "motionvault-agent-kit",
+  "version": "0.1.0",
+  "counts": {
+    "tools": 40,
+    "resources": 3,
+    "prompts": 3,
+    "skills": 6,
+    "agents": 6
+  },
+  "tools": [
+    {
+      "name": "search_templates",
+      "description": "Search original template, style, background, gradient or UI libraries using words and bounded filters.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "query": {
+            "default": "",
+            "type": "string",
+            "maxLength": 200
+          },
+          "library": {
+            "default": "templates",
+            "type": "string",
+            "enum": [
+              "templates",
+              "all",
+              "styles",
+              "backgrounds",
+              "gradients",
+              "ui"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "engine": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "mediaKind": {
+            "type": "string",
+            "enum": [
+              "generated-video",
+              "photo-with-runtime",
+              "gpu-shader",
+              "three-geometry",
+              "canvas",
+              "css"
+            ]
+          },
+          "free": {
+            "type": "boolean"
+          },
+          "limit": {
+            "default": 12,
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "offset": {
+            "default": 0,
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_template",
+      "description": "Get one original template and precise media capabilities.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "compare_templates",
+      "description": "Compare 2–5 templates by engine, source media, style and formats.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "ids": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_build_prompt",
+      "description": "Return an original template build prompt with bounded user customization.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          },
+          "brief": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "headline": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "accent": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_source_links",
+      "description": "Get public source, playground, demo and license links without fetching account data.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_template_source",
+      "description": "Fetch complete public standalone HTML and asset manifest from the one configured MotionVault origin; 8s/1MB limit.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "configured-source-origin-only"
+    },
+    {
+      "name": "get_asset_manifest",
+      "description": "List original public poster/video/font asset URLs and ZIP paths; no remote media download.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "create_cinematic_brief",
+      "description": "Compose a concrete photographic/CG asset brief and implementation acceptance criteria.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "materials": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "lighting": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "headline": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "medium": {
+            "default": "photoreal-cgi",
+            "type": "string",
+            "enum": [
+              "photograph",
+              "photoreal-cgi",
+              "generated-film"
+            ]
+          },
+          "subjectCenterX": {
+            "default": 0.7,
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 0.85
+          }
+        },
+        "required": [
+          "name",
+          "subject",
+          "materials",
+          "lighting",
+          "headline"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "plan_storyboard",
+      "description": "Create mechanism-specific four-chapter shots with precise time/frame/progress ranges.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "mechanism": {
+            "type": "string",
+            "enum": [
+              "product-reveal",
+              "image-reveal",
+              "portrait",
+              "world-transition"
+            ]
+          },
+          "duration": {
+            "default": 12,
+            "type": "number",
+            "minimum": 2,
+            "maximum": 120
+          },
+          "fps": {
+            "default": "30",
+            "type": "string",
+            "enum": [
+              "24",
+              "30",
+              "60"
+            ]
+          }
+        },
+        "required": [
+          "mechanism"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "build_motion_timeline",
+      "description": "Allocate weighted beats to exact seconds, frame ranges and normalized progress.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "beats": {
+            "minItems": 1,
+            "maxItems": 24,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "weight": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "name",
+                "weight"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "duration": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 300
+          },
+          "fps": {
+            "default": 30,
+            "type": "integer",
+            "minimum": 12,
+            "maximum": 120
+          }
+        },
+        "required": [
+          "beats",
+          "duration"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_design_tokens",
+      "description": "Generate viewport-specific readable typography, composition tokens and CSS variables.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "style": {
+            "default": "editorial-noir",
+            "type": "string",
+            "enum": [
+              "editorial-noir",
+              "alpine-product",
+              "spatial-tech",
+              "automotive"
+            ]
+          },
+          "width": {
+            "default": 1280,
+            "type": "integer",
+            "minimum": 240,
+            "maximum": 3840
+          },
+          "height": {
+            "default": 720,
+            "type": "integer",
+            "minimum": 240,
+            "maximum": 2160
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_easing_curve",
+      "description": "Calculate a sampled cubic-bezier curve using time-axis inversion, plus CSS easing.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "intent": {
+            "type": "string",
+            "enum": [
+              "settle",
+              "reveal",
+              "camera",
+              "cut"
+            ]
+          },
+          "samples": {
+            "default": 11,
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 61
+          }
+        },
+        "required": [
+          "intent"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "analyze_contrast",
+      "description": "Calculate WCAG contrast for two opaque hex colors and normal/large text thresholds.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "foreground": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "background": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "fontPx": {
+            "default": 16,
+            "type": "number",
+            "minimum": 1,
+            "maximum": 400
+          },
+          "weight": {
+            "default": 400,
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 900
+          }
+        },
+        "required": [
+          "foreground",
+          "background"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "plan_responsive_crop",
+      "description": "Compute object-fit cover scale, crop offsets and object-position for a desired subject position.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "assetWidth": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20000
+          },
+          "assetHeight": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20000
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 7680
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 7680
+          },
+          "focusX": {
+            "default": 0.7,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "focusY": {
+            "default": 0.5,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "targetX": {
+            "default": 0.65,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "targetY": {
+            "default": 0.5,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "assetWidth",
+          "assetHeight",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_export_checklist",
+      "description": "Return format-specific packaging and playback checks grounded in a selected template.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          },
+          "formats": {
+            "default": [
+              "source",
+              "mp4",
+              "png"
+            ],
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "source",
+                "mp4",
+                "webm",
+                "png"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_scroll_scaffold",
+      "description": "Generate complete original pinned native-scroll HTML with reversible chapter states, pause and reduced motion.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "chapters": {
+            "minItems": 2,
+            "maxItems": 6,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            }
+          },
+          "templateId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          },
+          "accent": {
+            "default": "#d8bd82",
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          }
+        },
+        "required": [
+          "title",
+          "chapters"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_glsl_shader",
+      "description": "Generate a working original WebGL fragment/vertex shader and standalone pointer-reactive HTML.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "aurora",
+              "liquid-chrome",
+              "ripple"
+            ]
+          },
+          "accent": {
+            "default": "#78c6dc",
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "speed": {
+            "default": 1,
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "validate_motion_spec",
+      "description": "Check declared typography, source-media claims, export assets and timing for concrete implementation mistakes.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "width": {
+            "type": "integer",
+            "minimum": 240,
+            "maximum": 3840
+          },
+          "headlinePx": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 400
+          },
+          "bodyPx": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "controlPx": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "duration": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 300
+          },
+          "fps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 240
+          },
+          "media": {
+            "type": "string",
+            "enum": [
+              "still",
+              "video",
+              "three",
+              "shader"
+            ]
+          },
+          "claimsGeneratedSubjectVideo": {
+            "default": false,
+            "type": "boolean"
+          },
+          "files": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          },
+          "requiresSourceZip": {
+            "default": true,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "width",
+          "headlinePx",
+          "bodyPx",
+          "controlPx",
+          "duration",
+          "fps",
+          "media",
+          "files"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_design_system",
+      "description": "Get an original style system, declared tokens and DESIGN.md without copying a reference library.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_asset_source",
+      "description": "Return bundled original asset source, or explicit CSS variables generated from declared style tokens.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_palette",
+      "description": "Generate a tonal HSL palette from one seed and calculate actual opaque contrast pairs.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "seed": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "mode": {
+            "default": "dark",
+            "type": "string",
+            "enum": [
+              "dark",
+              "light"
+            ]
+          }
+        },
+        "required": [
+          "seed"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_type_scale",
+      "description": "Calculate a modular type scale and fluid CSS across explicit viewport endpoints.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "basePx": {
+            "default": 16,
+            "type": "number",
+            "minimum": 12,
+            "maximum": 24
+          },
+          "ratio": {
+            "default": 1.25,
+            "type": "number",
+            "minimum": 1.05,
+            "maximum": 1.7
+          },
+          "steps": {
+            "default": 7,
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 10
+          },
+          "minViewport": {
+            "default": 390,
+            "type": "integer",
+            "minimum": 240,
+            "maximum": 2000
+          },
+          "maxViewport": {
+            "default": 1440,
+            "type": "integer",
+            "minimum": 400,
+            "maximum": 3840
+          },
+          "desktopMultiplier": {
+            "default": 1.25,
+            "type": "number",
+            "minimum": 1,
+            "maximum": 2
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_spacing_scale",
+      "description": "Build a consistent spacing rhythm and responsive CSS without mixing unitless lengths.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "unit": {
+            "default": 4,
+            "type": "number",
+            "minimum": 2,
+            "maximum": 16
+          },
+          "multipliers": {
+            "default": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              8,
+              12,
+              16,
+              24
+            ],
+            "minItems": 3,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 64
+            }
+          },
+          "density": {
+            "default": "comfortable",
+            "type": "string",
+            "enum": [
+              "compact",
+              "comfortable"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "compare_design_assets",
+      "description": "Compare 2–5 bundled style/UI/background assets, including actual token differences.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "ids": {
+            "minItems": 2,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+            }
+          }
+        },
+        "required": [
+          "ids"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "inspect_html",
+      "description": "Inspect supplied HTML source for structural counts, resource references, duplicate IDs and broken anchors; never execute it.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string",
+            "maxLength": 120000
+          }
+        },
+        "required": [
+          "html"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "check_accessibility_markup",
+      "description": "Find concrete semantic source signals: language, title, headings, image alternatives, labels and empty controls.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string",
+            "maxLength": 120000
+          }
+        },
+        "required": [
+          "html"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "check_motion_accessibility",
+      "description": "Review declared motion plus supplied HTML for reduced-motion, pause and scroll-safety signals.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string",
+            "maxLength": 120000
+          },
+          "autonomousSeconds": {
+            "default": 0,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 3600
+          },
+          "flashesPerSecond": {
+            "default": 0,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "hasEquivalentStill": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "html"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "analyze_performance_budget",
+      "description": "Sum supplied resource bytes by kind and compare explicit initial-load and total budgets.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "assets": {
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "url": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 20000000000
+                },
+                "kind": {
+                  "default": "other",
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "video",
+                    "font",
+                    "script",
+                    "style",
+                    "other"
+                  ]
+                },
+                "license": {
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "source": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "initialPaths": {
+            "default": [],
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "initialBudgetBytes": {
+            "default": 3000000,
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 1000000000
+          },
+          "totalBudgetBytes": {
+            "default": 20000000,
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 10000000000
+          }
+        },
+        "required": [
+          "assets"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "validate_asset_manifest",
+      "description": "Check ZIP-relative paths, duplicate names, supplied packaged files, resource origins and license gaps.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "assets": {
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "url": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 20000000000
+                },
+                "kind": {
+                  "default": "other",
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "video",
+                    "font",
+                    "script",
+                    "style",
+                    "other"
+                  ]
+                },
+                "license": {
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "source": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "packagedPaths": {
+            "maxItems": 400,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          }
+        },
+        "required": [
+          "assets"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "audit_dependencies",
+      "description": "Review supplied dependency versions and recorded license evidence for source redistribution.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "dependencies": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "version": {
+                  "default": "",
+                  "type": "string",
+                  "maxLength": 100
+                },
+                "license": {
+                  "default": "unknown",
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "noticeIncluded": {
+                  "default": false,
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "dependencies"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "review_licensing",
+      "description": "Triage per-asset evidence for end-project versus library redistribution; preserve restrictive source boundaries.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "use": {
+            "type": "string",
+            "enum": [
+              "end-project",
+              "template-library"
+            ]
+          },
+          "items": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "code",
+                    "media",
+                    "font"
+                  ]
+                },
+                "license": {
+                  "default": "unknown",
+                  "type": "string",
+                  "maxLength": 300
+                },
+                "source": {
+                  "type": "string",
+                  "maxLength": 1000
+                },
+                "evidence": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "noticeIncluded": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "redistributionPermission": {
+                  "default": "unverified",
+                  "type": "string",
+                  "enum": [
+                    "confirmed",
+                    "denied",
+                    "unverified"
+                  ]
+                },
+                "provenanceRequired": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "provenancePreserved": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "kind"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "use",
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "check_media_provenance",
+      "description": "Compare supplied SHA-256 evidence and provenance requirements without claiming credential-chain verification.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "items": {
+            "minItems": 1,
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "nativeSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "distributedSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "provenanceRequired": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "nativeMarkerPresent": {
+                  "type": "boolean"
+                },
+                "distributedMarkerPresent": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "path",
+                "nativeSha256",
+                "distributedSha256"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "plan_launch_preflight",
+      "description": "Build a release gate table from explicit observed evidence; unknown checks never become passes.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "scope": {
+            "default": "preview",
+            "type": "string",
+            "enum": [
+              "preview",
+              "public-free",
+              "paid-library"
+            ]
+          },
+          "evidence": {
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "gate": {
+                  "type": "string",
+                  "enum": [
+                    "desktop-frames",
+                    "mobile-frames",
+                    "reverse-scroll",
+                    "pause-reduced-motion",
+                    "source-zip",
+                    "media-playback",
+                    "forms",
+                    "asset-rights",
+                    "privacy",
+                    "billing-cancellation"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "pass",
+                    "fail",
+                    "unverified"
+                  ]
+                },
+                "note": {
+                  "default": "",
+                  "type": "string",
+                  "maxLength": 1000
+                }
+              },
+              "required": [
+                "gate",
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "verify_template_source",
+      "description": "Fetch the configured public source endpoint and return its digest, resource findings and catalog media consistency.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "configured-source-origin-only"
+    },
+    {
+      "name": "plan_visual_qa",
+      "description": "Create exact five-progress capture cases across responsive viewports with media-specific expectations.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,119}$"
+          },
+          "viewports": {
+            "default": [
+              {
+                "width": 1440,
+                "height": 900
+              },
+              {
+                "width": 390,
+                "height": 844
+              }
+            ],
+            "minItems": 1,
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 240,
+                  "maximum": 3840
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 240,
+                  "maximum": 2160
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "duration": {
+            "default": 6,
+            "type": "number",
+            "minimum": 0,
+            "maximum": 300
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "build_reduced_motion_plan",
+      "description": "Map declared effects to meaningful still/low-motion alternatives and implementation hooks.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "effects": {
+            "minItems": 1,
+            "maxItems": 8,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "camera-travel",
+                "parallax",
+                "scrub-video",
+                "shader",
+                "particle-field",
+                "type-reveal",
+                "flash",
+                "autoplay-video"
+              ]
+            }
+          }
+        },
+        "required": [
+          "effects"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_responsive_layout",
+      "description": "Generate original container-responsive CSS for an editorial hero and useful content grid.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "className": {
+            "default": "cinematic-layout",
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,39}$"
+          },
+          "minColumnPx": {
+            "default": 280,
+            "type": "integer",
+            "minimum": 200,
+            "maximum": 600
+          },
+          "maxWidthPx": {
+            "default": 1440,
+            "type": "integer",
+            "minimum": 800,
+            "maximum": 2000
+          },
+          "gapPx": {
+            "default": 24,
+            "type": "number",
+            "minimum": 8,
+            "maximum": 80
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "generate_design_document",
+      "description": "Create an original DESIGN.md from structured colors, typography, spacing and explicit component rules.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "colors": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^#[0-9a-f]{6}$"
+            }
+          },
+          "fontFamilies": {
+            "minItems": 1,
+            "maxItems": 5,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            }
+          },
+          "typeScale": {
+            "minItems": 3,
+            "maxItems": 10,
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 10,
+              "maximum": 300
+            }
+          },
+          "spacing": {
+            "minItems": 3,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 300
+            }
+          },
+          "componentRules": {
+            "minItems": 1,
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          }
+        },
+        "required": [
+          "name",
+          "purpose",
+          "colors",
+          "fontFamilies",
+          "typeScale",
+          "spacing",
+          "componentRules"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "list_agent_workflows",
+      "description": "Discover six reusable specialist role guides and their real tool dependencies; does not spawn agents.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "query": {
+            "default": "",
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    },
+    {
+      "name": "get_agent_workflow",
+      "description": "Get a concrete specialist workflow, deliverables and relevant tools without starting background execution.",
+      "inputSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "cinematic-art-director",
+              "motion-engineer",
+              "design-system-architect",
+              "source-delivery-reviewer",
+              "asset-rights-steward",
+              "launch-reviewer"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "readOnly": true,
+      "network": "none"
+    }
+  ],
+  "resources": [
+    {
+      "name": "template-catalog",
+      "uri": "motionvault://catalog",
+      "description": "Bundled public original template metadata and build prompts."
+    },
+    {
+      "name": "cinematic-guidelines",
+      "uri": "motionvault://guidelines/cinematic",
+      "description": "Framing, typography, media truth, source rights and visual verification rules."
+    },
+    {
+      "name": "server-capabilities",
+      "uri": "motionvault://capabilities",
+      "description": "Actual tools, skills, workflow guides, limits and supported scope."
+    }
+  ],
+  "prompts": [
+    {
+      "name": "build_cinematic_template",
+      "description": "Begin an original cinematic template with media-first framing and complete source delivery."
+    },
+    {
+      "name": "review_motion_template",
+      "description": "Review a declared template against cinematic composition and delivery requirements."
+    },
+    {
+      "name": "plan_product_film",
+      "description": "Plan an authored person-to-product-to-macro-to-action cinematic sequence."
+    }
+  ],
+  "skills": [
+    {
+      "name": "cinematic-builder",
+      "description": "Build cinematic websites from original MotionVault templates with authored scroll sequences, photographic or CGI media, functional sections, and complete source delivery. Use for cinematic website creation or visual template adaptation.",
+      "path": "skills/cinematic-builder/SKILL.md"
+    },
+    {
+      "name": "delivery-review",
+      "description": "Review cinematic website source packages, asset manifests, dependencies, semantic HTML and actual exported playback. Use for source-delivery defects, broken standalone exports or a requested implementation review.",
+      "path": "skills/delivery-review/SKILL.md"
+    },
+    {
+      "name": "design-systems",
+      "description": "Discover and apply original MotionVault style systems, UI components, backgrounds, and gradients using downloadable DESIGN.md and editable source. Use for consistent visual systems or a supporting design-library asset.",
+      "path": "skills/design-systems/SKILL.md"
+    },
+    {
+      "name": "launch-preflight",
+      "description": "Consolidate observed visual, source, accessibility, rights and product-flow evidence into a concrete release gate table. Use when a cinematic project is being prepared for review, public launch or paid-library release.",
+      "path": "skills/launch-preflight/SKILL.md"
+    },
+    {
+      "name": "motion-director",
+      "description": "Author or diagnose scroll choreography, easing, camera crops, responsive motion, and real GLSL effects for a cinematic website. Use when a site feels static, transitions fail, or a motion system needs implementation.",
+      "path": "skills/motion-director/SKILL.md"
+    },
+    {
+      "name": "source-provenance",
+      "description": "Organize asset origin, redistribution evidence, license notices and native-media provenance for a template or commercial library. Use for asset ingestion, source packaging and requested rights/provenance review.",
+      "path": "skills/source-provenance/SKILL.md"
+    }
+  ],
+  "agents": [
+    {
+      "id": "cinematic-art-director",
+      "title": "Cinematic art director",
+      "description": "Turn a product or world into distinct authored film states and an original media brief.",
+      "path": "agents/cinematic-art-director.md",
+      "skill": "cinematic-builder",
+      "tools": [
+        "search_templates",
+        "create_cinematic_brief",
+        "plan_storyboard",
+        "plan_visual_qa"
+      ],
+      "execution": "client-invoked instruction guide"
+    },
+    {
+      "id": "motion-engineer",
+      "title": "Motion engineer",
+      "description": "Implement reversible scroll and bounded GPU motion with accessible alternatives.",
+      "path": "agents/motion-engineer.md",
+      "skill": "motion-director",
+      "tools": [
+        "build_motion_timeline",
+        "generate_scroll_scaffold",
+        "generate_glsl_shader",
+        "build_reduced_motion_plan",
+        "check_motion_accessibility"
+      ],
+      "execution": "client-invoked instruction guide"
+    },
+    {
+      "id": "design-system-architect",
+      "title": "Design system architect",
+      "description": "Build coherent palette, type, spacing and component rules from original tokens.",
+      "path": "agents/design-system-architect.md",
+      "skill": "design-systems",
+      "tools": [
+        "compare_design_assets",
+        "generate_palette",
+        "generate_type_scale",
+        "generate_spacing_scale",
+        "generate_design_document"
+      ],
+      "execution": "client-invoked instruction guide"
+    },
+    {
+      "id": "source-delivery-reviewer",
+      "title": "Source delivery reviewer",
+      "description": "Review standalone HTML, manifests, dependency versions and packaged source.",
+      "path": "agents/source-delivery-reviewer.md",
+      "skill": "delivery-review",
+      "tools": [
+        "verify_template_source",
+        "inspect_html",
+        "validate_asset_manifest",
+        "audit_dependencies",
+        "check_accessibility_markup",
+        "analyze_performance_budget"
+      ],
+      "execution": "client-invoked instruction guide"
+    },
+    {
+      "id": "asset-rights-steward",
+      "title": "Asset rights steward",
+      "description": "Organize redistribution evidence and native-media provenance without legal guarantees.",
+      "path": "agents/asset-rights-steward.md",
+      "skill": "source-provenance",
+      "tools": [
+        "review_licensing",
+        "check_media_provenance",
+        "validate_asset_manifest",
+        "audit_dependencies"
+      ],
+      "execution": "client-invoked instruction guide"
+    },
+    {
+      "id": "launch-reviewer",
+      "title": "Launch reviewer",
+      "description": "Consolidate actual source, visual, accessibility and rights evidence into release gates.",
+      "path": "agents/launch-reviewer.md",
+      "skill": "launch-preflight",
+      "tools": [
+        "plan_launch_preflight",
+        "plan_visual_qa",
+        "get_export_checklist",
+        "check_motion_accessibility",
+        "review_licensing"
+      ],
+      "execution": "client-invoked instruction guide"
+    }
+  ],
+  "runtime": {
+    "sdk": "@modelcontextprotocol/sdk 1.32.1",
+    "protocolLine": "v1 / through 2025-11-25",
+    "transports": [
+      "stdio",
+      "stateless-streamable-http"
+    ],
+    "sourceTimeoutMs": 8000,
+    "sourceMaxBytes": 1000000,
+    "requestMaxBytes": 262144,
+    "mutations": false,
+    "mediaGeneration": false,
+    "backgroundAgents": false
+  },
+  "sourceBoundary": "Original or explicitly licensed work only. React Bits MIT + Commons Clause components/bundles/ports are interaction research, not commercial template-library source."
+}
