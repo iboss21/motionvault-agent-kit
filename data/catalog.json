@@ -1,7 +1,485 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-10-15T22:19:02.005Z",
+  "generatedAt": "2026-10-15T23:18:01.208Z",
   "templates": [
+    {
+      "id": "aviation-mountain-rescue-foundation",
+      "title": "HALO / Nightwatch",
+      "subtitle": "A rescue-pilot portrait in rain, mountain shadow and amber light.",
+      "category": "Scroll",
+      "tags": [
+        "Cinematic",
+        "Aviation",
+        "Character film",
+        "Search & rescue"
+      ],
+      "engine": "Cinematic / Video",
+      "format": "Complete responsive website · Five scroll chapters",
+      "free": false,
+      "featured": true,
+      "color": "#ed9a48",
+      "background": "#041019",
+      "scene": "halo-nightwatch",
+      "cinematic": {
+        "kind": "ronin",
+        "brand": "HALO",
+        "poster": "/cinematic/halo-native.png",
+        "video": "/cinematic/halo.mp4",
+        "eyebrow": "THE NIGHTWATCH / A MOUNTAIN RESCUE STORY",
+        "headline": "When the\nworld goes dark.",
+        "chapter": "A light worth following.",
+        "description": "For the people who choose to keep looking.\nAt the edge of visibility."
+      },
+      "prompt": "Build the complete original HALO Nightwatch cinematic foundation website around the supplied native rain-soaked rescue-pilot portrait. Huge cream editorial serif headline left, cool mountain atmosphere and amber searchlight right, restrained weather overlays and real native reversible five-chapter scroll. Use actual supplied video when available, and otherwise identify the work as an image-led concept. Include mission, human perspective, preparation, field values, foundation involvement, real keyboard FAQ, useful project enquiry form with truthful local-draft fallback, navigation, mobile/reduced-motion/pause, complete source and intact native assets/provenance. Fictional foundation: no live emergency dispatch, invented missions, certifications, donation processing, endorsements or response-time claims.",
+      "assets": [
+        {
+          "url": "/cinematic/halo-native.png",
+          "path": "assets/halo-native.png"
+        },
+        {
+          "url": "/cinematic/halo.mp4",
+          "path": "assets/halo.mp4"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
+    {
+      "id": "film-nocturnal-fashion-film-studio",
+      "title": "ONYX / Cold Front",
+      "subtitle": "A fashion image house where black fabric meets an arctic horizon.",
+      "category": "Websites",
+      "tags": [
+        "Cinematic",
+        "Fashion",
+        "Editorial",
+        "Character film"
+      ],
+      "engine": "Cinematic / Video",
+      "format": "Complete responsive website · Five scroll chapters",
+      "free": false,
+      "featured": true,
+      "color": "#c6dce8",
+      "background": "#070d16",
+      "scene": "onyx-cold-front",
+      "cinematic": {
+        "kind": "vanta",
+        "brand": "ONYX",
+        "poster": "/cinematic/onyx-native.png",
+        "video": "/cinematic/onyx.mp4",
+        "eyebrow": "INDEPENDENT FASHION IMAGE HOUSE / COLD FRONT",
+        "headline": "COLD\nFRONT.",
+        "chapter": "Presence without excess.",
+        "description": "One silhouette. An unfamiliar world.\nFashion films with a point of view."
+      },
+      "prompt": "Build the original complete ONYX Cold Front fashion-image-house website with the supplied native full-length adult model photograph: sculptural black coat, windblown hem, reflective arctic runway and monumental ice. Giant restrained uppercase fashion typography and a dark editorial document, genuine native reversible five-stage camera/typography chapters and actual supplied film when available. Include collection reading, three creative studies, movement/material direction, production process, collaboration brief, keyboard FAQ and functioning enquiry draft. Complete responsive/source/native asset delivery. A fictional image house and concept wardrobe, not a real apparel store: no fake products, prices, checkout, clients, awards or sustainability certifications.",
+      "assets": [
+        {
+          "url": "/cinematic/onyx-native.png",
+          "path": "assets/onyx-native.png"
+        },
+        {
+          "url": "/cinematic/onyx.mp4",
+          "path": "assets/onyx.mp4"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
+    {
+      "id": "ocean-bioluminescence-exhibition",
+      "title": "THALASSA / Below",
+      "subtitle": "A diver, a living darkness, and a different way to see the ocean.",
+      "category": "Scroll",
+      "tags": [
+        "Cinematic",
+        "Ocean",
+        "Exhibition",
+        "Image-led scroll"
+      ],
+      "engine": "Cinematic / Scroll",
+      "format": "Complete responsive website · Five scroll chapters",
+      "free": false,
+      "featured": true,
+      "color": "#6dcad8",
+      "background": "#020c19",
+      "scene": "thalassa-below",
+      "cinematic": {
+        "kind": "selene",
+        "brand": "THALASSA",
+        "poster": "/cinematic/thalassa-native.png",
+        "eyebrow": "BELOW / AN IMMERSIVE OCEAN EXHIBITION",
+        "headline": "The dark\nis alive.",
+        "chapter": "Look closer. Leave lighter.",
+        "description": "An imagined encounter with the deep ocean.\nLight, scale, and a world beyond the surface."
+      },
+      "prompt": "Build the complete original THALASSA Below marine-exhibition website around the supplied native cinematic deep-sea diver and bioluminescent organisms. Deep indigo/black atmosphere, restrained cyan edge light, oversized elegant ivory serif copy on left, gentle original particle depth and true native reversible five-stage scroll. Use supplied real film when available; do not fake additional independently filmed shots with crops. Include exhibition idea, deep-ocean perspective, three audience chapters, light interpretation, visitor/access planning, partnership process, keyboard FAQ, real enquiry draft and full source/mobile/reduced-motion/pause. Clearly a fictional exhibition proposal, not a bookable dive operation or an existing scientific discovery; no invented field data, venues, ticket sales or conservation claims.",
+      "assets": [
+        {
+          "url": "/cinematic/thalassa-native.png",
+          "path": "assets/thalassa-native.png"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
+    {
+      "id": "sculpture-sand-cast-glass-column",
+      "title": "Penumbra / Cast Light",
+      "subtitle": "A cast-glass column, resolved in live three-dimensional light.",
+      "category": "3D & WebGL",
+      "tags": [
+        "Cinematic",
+        "Procedural",
+        "Glass",
+        "Interactive lighting",
+        "Five scenes"
+      ],
+      "engine": "WebGL / GLSL",
+      "format": "Complete website · Live 3D",
+      "free": false,
+      "featured": true,
+      "color": "#81d4d4",
+      "background": "#071821",
+      "scene": "procedural-optics",
+      "procedural": {
+        "kind": "optics"
+      },
+      "cinematic": {
+        "kind": "nexus",
+        "brand": "PENUMBRA",
+        "poster": "/procedural/optics.png",
+        "detailPoster": "/procedural/optics-detail.png",
+        "finalPoster": "/procedural/optics-finale.png",
+        "chapter": "Light, held.",
+        "eyebrow": "CAST GLASS / OBJECT STUDY 01",
+        "headline": "Light,\nheld.",
+        "description": "A study in translucency, material and the beautiful imperfection of casting."
+      },
+      "prompt": "An original complete cast-glass sculpture studio website. Real WebGL signed-distance geometry renders a ten-fluted twisted glass column with optical collars, spectral reflections, studio illumination and a pedestal. Native reversible five-stage scroll changes the camera viewpoint and construction. A working light-level control, material notes, fabrication process, installation planning, FAQ and local enquiry-draft form complete the website. No photographic assets, third-party models, false certifications or fabricated product claims.",
+      "assets": [
+        {
+          "url": "/procedural/optics.png",
+          "path": "assets/optics.png"
+        },
+        {
+          "url": "/procedural/optics-detail.png",
+          "path": "assets/optics-detail.png"
+        },
+        {
+          "url": "/procedural/optics-finale.png",
+          "path": "assets/optics-finale.png"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
+    {
+      "id": "lighting-kinetic-ceiling-sculpture",
+      "title": "Orbit Bureau / Assembly 07",
+      "subtitle": "Seven bodies, three orbital rings, and a kinetic spatial practice.",
+      "category": "3D & WebGL",
+      "tags": [
+        "Cinematic",
+        "Procedural",
+        "Kinetic sculpture",
+        "Spatial",
+        "Five scenes"
+      ],
+      "engine": "WebGL / GLSL",
+      "format": "Complete website · Live 3D",
+      "free": false,
+      "featured": true,
+      "color": "#e3ae6e",
+      "background": "#08090c",
+      "scene": "procedural-orbital",
+      "procedural": {
+        "kind": "orbital"
+      },
+      "cinematic": {
+        "kind": "vanta",
+        "brand": "ORBIT BUREAU",
+        "poster": "/procedural/orbital.png",
+        "detailPoster": "/procedural/orbital-detail.png",
+        "finalPoster": "/procedural/orbital-finale.png",
+        "chapter": "A system in balance.",
+        "eyebrow": "KINETIC LIGHT / ASSEMBLY 07",
+        "headline": "A system\nin balance.",
+        "description": "Spatial studies in suspension, relationship and slow, deliberate movement."
+      },
+      "prompt": "An original complete kinetic lighting practice website. Real WebGL geometry renders seven suspended metallic bodies, a central machined sphere and three differently inclined thin orbital rings. Five reversible native-scroll scenes orbit, elevate and reveal the assembly. A real assembled/exploded control changes the three-dimensional geometry. Include suspension, motion principles, spatial planning, commission stages, technical questions, and a truthful downloadable enquiry draft. No outside textures/models or pretend film footage.",
+      "assets": [
+        {
+          "url": "/procedural/orbital.png",
+          "path": "assets/orbital.png"
+        },
+        {
+          "url": "/procedural/orbital-detail.png",
+          "path": "assets/orbital-detail.png"
+        },
+        {
+          "url": "/procedural/orbital-finale.png",
+          "path": "assets/orbital-finale.png"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
+    {
+      "id": "architecture-monolithic-coastal-chapel",
+      "title": "Palis / A Quiet Measure",
+      "subtitle": "A limestone chapel explored through five thresholds of light.",
+      "category": "3D & WebGL",
+      "tags": [
+        "Cinematic",
+        "Procedural",
+        "Architecture",
+        "Light study",
+        "Five scenes"
+      ],
+      "engine": "WebGL / GLSL",
+      "format": "Complete website · Live 3D",
+      "free": false,
+      "featured": true,
+      "color": "#d6b77c",
+      "background": "#242521",
+      "scene": "procedural-architecture",
+      "procedural": {
+        "kind": "architecture"
+      },
+      "cinematic": {
+        "kind": "eden",
+        "brand": "PALIS",
+        "poster": "/procedural/architecture.png",
+        "detailPoster": "/procedural/architecture-detail.png",
+        "finalPoster": "/procedural/architecture-finale.png",
+        "chapter": "The shape of stillness.",
+        "eyebrow": "COASTAL CHAPEL / SPATIAL STUDY",
+        "headline": "The shape\nof stillness.",
+        "description": "An unbuilt place for a slower encounter with light, stone and the horizon."
+      },
+      "prompt": "An original complete architectural practice website for an explicitly unbuilt monolithic coastal chapel study. True WebGL raymarched limestone architecture, five subtracted vaulted openings, a stone plinth and a luminous vertical light blade. Five native reversible scroll stages move the camera from oblique arrival through the nave to the inner room. A Dawn/Noon control changes the light study. Useful spatial concept, route, materials, environmental questions, design process, FAQ and working enquiry-draft form. Never claim a built project, approved structure or actual engineering performance.",
+      "assets": [
+        {
+          "url": "/procedural/architecture.png",
+          "path": "assets/architecture.png"
+        },
+        {
+          "url": "/procedural/architecture-detail.png",
+          "path": "assets/architecture-detail.png"
+        },
+        {
+          "url": "/procedural/architecture-finale.png",
+          "path": "assets/architecture-finale.png"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/instrument-serif-latin-400-italic.woff2",
+          "path": "assets/fonts/instrument-serif-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/anton-latin-400-normal.woff2",
+          "path": "assets/fonts/anton-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/syncopate-latin-400-normal.woff2",
+          "path": "assets/fonts/syncopate-latin-400-normal.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/bodoni-moda-latin-400-italic.woff2",
+          "path": "assets/fonts/bodoni-moda-latin-400-italic.woff2"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-InstrumentSerif.txt",
+          "path": "assets/fonts/LICENSE-InstrumentSerif.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Anton.txt",
+          "path": "assets/fonts/LICENSE-Anton.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-Syncopate.txt",
+          "path": "assets/fonts/LICENSE-Syncopate.txt"
+        },
+        {
+          "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
+          "path": "assets/fonts/LICENSE-BodoniModa.txt"
+        }
+      ]
+    },
     {
       "id": "ronin-studio",
       "title": "Ronin Studio",
@@ -470,6 +948,7 @@
         "kind": "ronin",
         "brand": "MAGMA",
         "poster": "/cinematic/magma.webp",
+        "video": "/cinematic/magma.mp4",
         "eyebrow": "FORM IS A FEELING. MAKE IT UNFORGETTABLE.",
         "headline": "Ideas, cast\nin fire.",
         "chapter": "Nothing ordinary survives.",
@@ -480,6 +959,10 @@
         {
           "url": "/cinematic/magma.webp",
           "path": "assets/magma.webp"
+        },
+        {
+          "url": "/cinematic/magma.mp4",
+          "path": "assets/magma.mp4"
         },
         {
           "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
@@ -542,6 +1025,7 @@
         "kind": "eden",
         "brand": "SABLE",
         "poster": "/cinematic/sable.webp",
+        "video": "/cinematic/sable.mp4",
         "eyebrow": "PRIVATE JOURNEYS / BEYOND THE MARKED PATH",
         "headline": "Follow the\nunwritten.",
         "chapter": "The wild knows your name.",
@@ -552,6 +1036,10 @@
         {
           "url": "/cinematic/sable.webp",
           "path": "assets/sable.webp"
+        },
+        {
+          "url": "/cinematic/sable.mp4",
+          "path": "assets/sable.mp4"
         },
         {
           "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
@@ -614,6 +1102,7 @@
         "kind": "selene",
         "brand": "ARU",
         "poster": "/cinematic/aru.webp",
+        "video": "/cinematic/aru.mp4",
         "eyebrow": "FIELD NOTES / THE WORLD IS STILL WILD",
         "headline": "Keep the\nwild alive.",
         "chapter": "Some stories have wings.",
@@ -624,6 +1113,10 @@
         {
           "url": "/cinematic/aru.webp",
           "path": "assets/aru.webp"
+        },
+        {
+          "url": "/cinematic/aru.mp4",
+          "path": "assets/aru.mp4"
         },
         {
           "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",
@@ -686,6 +1179,7 @@
         "kind": "nexus",
         "brand": "MONOLITH",
         "poster": "/cinematic/monolith.webp",
+        "video": "/cinematic/monolith.mp4",
         "eyebrow": "ARCHITECTURE / A DIALOGUE WITH THE ESSENTIAL",
         "headline": "FORM\nWITHOUT\nCOMPROMISE.",
         "chapter": "Space is the true material.",
@@ -696,6 +1190,10 @@
         {
           "url": "/cinematic/monolith.webp",
           "path": "assets/monolith.webp"
+        },
+        {
+          "url": "/cinematic/monolith.mp4",
+          "path": "assets/monolith.mp4"
         },
         {
           "url": "/cinematic/fonts/instrument-serif-latin-400-normal.woff2",

@@ -2,7 +2,7 @@
 
 MotionVault's first-party toolkit for building cinematic websites: an MCP server, six reusable skills, six specialist agent guides, original template discovery, design systems, working code generators, and source-delivery tools.
 
-**Local beta.** The intended remote service is `https://mcp.motionvault.site/mcp`. That hostname is not activated by installing this package. Start the local server below; the template source service can use the running MotionVault website.
+**Public beta.** Connect a Streamable HTTP MCP client directly to **https://mcp.motionvault.site/mcp**, or run the local server below. The live service exposes the public catalog and creative engineering tools without access to customer accounts. Source delivery uses the live MotionVault website.
 
 ## Start
 

@@ -45,6 +45,16 @@ test('design assets expose genuine source/tokens and explicit generation provena
  const original=execute('get_asset_source',{id:'aurora-bg'});assert.equal(original.source,'body{background:#111}');assert.equal(original.generatedFromTokens,false);
 });
 
+test('live WebGL studies remain GPU templates and do not advertise unsupported media exports',async()=>{
+ const catalog=await loadCatalog(),study=catalog.templates.find(item=>item.procedural);
+ assert.ok(study,'Bundled catalog must contain an actual WebGL study');
+ const tools=createToolset(catalog),run=(name,args)=>{const tool=tools.find(t=>t.name===name);return tool.run(tool.inputSchema.parse(args))};
+ assert.equal(run('get_template',{id:study.id}).mediaKind,'gpu-shader');
+ const checklist=run('get_export_checklist',{id:study.id,formats:['source','mp4','png']});
+ assert.deepEqual(checklist.checks.map(item=>item.available),[true,false,false]);
+ assert.match(checklist.checks[1].steps[0],/standalone source export only/);
+});
+
 test('storyboard mechanism and weighted timeline produce exact end times and frame boundaries',()=>{
  const beats=timeline([{name:'a',weight:1},{name:'b',weight:2},{name:'c',weight:1}],12,30);
  assert.deepEqual(beats.map(b=>[b.start,b.end]),[[0,3],[3,9],[9,12]]);assert.equal(beats.at(-1).endFrame,360);
