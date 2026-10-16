@@ -1,12 +1,43 @@
 # MotionVault Agent Kit
 
-MotionVault's first-party toolkit for building cinematic websites: an MCP server, six reusable skills, six specialist agent guides, original template discovery, design systems, working code generators, and source-delivery tools.
+[![MotionVault — cinematic websites, ready to make yours](docs/assets/motionvault-banner.webp)](https://motionvault.site)
 
-**Public beta.** Connect a Streamable HTTP MCP client directly to **https://mcp.motionvault.site/mcp**, or run the local server below. The live service exposes the public catalog and creative engineering tools without access to customer accounts. Source delivery uses the live MotionVault website.
+[![Public beta](https://img.shields.io/badge/status-public_beta-71e8ff?style=flat-square&labelColor=15171b)](https://motionvault.site/agents)
+[![Verify agent kit](https://github.com/iboss21/motionvault-agent-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/iboss21/motionvault-agent-kit/actions/workflows/ci.yml)
+[![40 MCP tools](https://img.shields.io/badge/MCP_tools-40-71e8ff?style=flat-square&labelColor=15171b)](data/capabilities.json)
+[![6 skills](https://img.shields.io/badge/skills-6-71e8ff?style=flat-square&labelColor=15171b)](skills)
+[![6 agent guides](https://img.shields.io/badge/agent_guides-6-71e8ff?style=flat-square&labelColor=15171b)](agents)
+[![Node 20.19+](https://img.shields.io/badge/Node-20.19%2B-71e8ff?style=flat-square&labelColor=15171b)](package.json)
+[![MIT code license](https://img.shields.io/badge/code_license-MIT-71e8ff?style=flat-square&labelColor=15171b)](LICENSE)
 
-## Start
+**Build cinematic websites with your AI agent.** MotionVault's first-party toolkit combines original template discovery, motion direction, design systems, executable code generators and practical source delivery.
 
-Requires Node20.19+ (Node22/24 recommended).
+[Explore MotionVault](https://motionvault.site) · [Browse templates](https://motionvault.site/library) · [Developer API](https://motionvault.site/developers) · [Connect MCP](https://mcp.motionvault.site/mcp)
+
+![HALO / Nightwatch — actual MotionVault cinematic preview](docs/assets/motionvault-halo.webp)
+
+*An actual HALO / Nightwatch preview, captured in Chrome. The toolkit helps you choose the media mechanism, plan the scroll story, obtain authorised source and inspect the delivered result.*
+
+## Connect in minutes
+
+For public discovery, connect a Streamable HTTP MCP client to **https://mcp.motionvault.site/mcp**. No account or key is required for catalog metadata, free prompts/source and creative engineering tools.
+
+```json
+{
+  "mcpServers": {
+    "motionvault": {
+      "type": "http",
+      "url": "https://mcp.motionvault.site/mcp"
+    }
+  }
+}
+```
+
+Use a client that supports Streamable HTTP. Local stdio is available below. This is a public beta; catalog contents evolve independently from the package version, and premium retrieval depends on the MotionVault website being reachable.
+
+## Run locally
+
+Requires Node 20.19+ (Node 22/24 recommended).
 
 ```sh
 git clone https://github.com/iboss21/motionvault-agent-kit.git
@@ -35,6 +66,36 @@ Stdio clients can launch:
 
 Replace the absolute path for your machine. Stdio writes protocol messages to stdout and operational messages to stderr.
 
+## Read your purchased content
+
+Premium source requires an active membership. Premium prompts require membership or a previously redeemed Prompt Pack choice. A paid Prompt Pack provides **10 unique prompt redemptions** in the website workspace; MCP reads never spend a credit or choose a new redemption for you.
+
+Create a personal `templates:read` key in your signed-in [workspace](https://motionvault.site/dashboard). Keys are shown once, stored only as hashes, and expire after **90 days**. Set `MOTIONVAULT_API_KEY` in your private local process environment for stdio. For HTTP, supply your own key as the request's `Authorization: Bearer …` header.
+
+Claude Code supports environment expansion in MCP headers:
+
+```json
+{
+  "mcpServers": {
+    "motionvault": {
+      "type": "http",
+      "url": "https://mcp.motionvault.site/mcp",
+      "headers": { "Authorization": "Bearer ${MOTIONVAULT_API_KEY}" }
+    }
+  }
+}
+```
+
+Set the variable before starting your client; other clients may use their own secret store. See [Claude Code's MCP configuration reference](https://code.claude.com/docs/en/mcp#environment-variable-expansion-in-mcpjson).
+
+Never commit a key or put its value in a shared prompt, URL or checked-in configuration. The shared HTTP server forwards only each caller's key; it never lends an environment key to anonymous users. Keys cannot redeem credits, alter accounts/billing, generate media or publish. Revocation takes effect on subsequent authenticated reads.
+
+## A useful first request
+
+> Find a cinematic template for an orbital research brand. Compare three suitable mechanisms, distinguish real subject footage from photo motion, and create an original five-stage scroll storyboard. Generate a responsive scaffold, check reduced motion and prepare a source-delivery checklist. Ask for missing media instead of claiming a photo is a film.
+
+The tools return concrete plans, calculations and source. Your agent still needs an available editor/browser and, when appropriate, an authorised media provider to build and visually verify a finished bespoke site.
+
 ## Install the plugin
 
 In Claude Code:
@@ -56,6 +117,14 @@ Included skills:
 - **launch-preflight:** consolidate observed evidence into explicit release gates.
 
 Six agent definitions live in `agents/`: cinematic art director, motion engineer, design system architect, source delivery reviewer, asset rights steward, and launch reviewer. Claude Code can discover plugin agents from that standard directory; other clients can retrieve the same guides through `list_agent_workflows` and `get_agent_workflow`. They are reusable instructions invoked by the client/user, not background services or an autonomous execution engine. See the [Claude Code plugin reference](https://code.claude.com/docs/en/plugins-reference).
+
+## The original library
+
+![Actual MotionVault library with cinematic template previews](docs/assets/motionvault-library.webp)
+
+Search full templates and supporting style, UI, background and gradient libraries. Media labels distinguish generated subject footage, photographs with runtime camera motion, GPU shaders, Three.js geometry, canvas and CSS. Template counts in screenshots reflect their capture, not a permanent inventory promise; query the live catalog for current availability.
+
+The screenshots are real local development previews. The banner is official MotionVault artwork using original cinematic imagery. See [image provenance and capture details](docs/assets/README.md). These images are demonstrations, not customer endorsements or proof of guaranteed results.
 
 ## Tools and context
 
@@ -81,15 +150,16 @@ Code generators return actual executable code; they do not render a finished bes
 ## Configuration and boundaries
 
 - `MOTIONVAULT_BASE_URL`: one HTTP(S) origin; remote origins require HTTPS. No credentials, paths, query strings, or arbitrary source URLs.
+- `MOTIONVAULT_API_KEY`: optional personal `templates:read` key for your private stdio process. Hosted HTTP authorisation comes from the individual request header.
 - `MOTIONVAULT_CATALOG_PATH`: optional absolute path to another validated catalog snapshot.
 - `MOTIONVAULT_MCP_ALLOWED_ORIGINS`: comma-separated exact browser origins permitted by the local HTTP service. Requests without Origin, such as ordinary MCP clients, remain supported.
-- HTTP binds to127.0.0.1, port5190 by default; `--port` selects another port. Deployments may explicitly set `MOTIONVAULT_MCP_BIND_HOST=0.0.0.0` only with exact `MOTIONVAULT_MCP_ALLOWED_HOSTS`. Host/Origin checks, a request-rate bound, input validation and bounded source fetches are implemented.
+- HTTP binds to 127.0.0.1, port 5190 by default; `--port` selects another port. Deployments may explicitly set `MOTIONVAULT_MCP_BIND_HOST=0.0.0.0` only with exact `MOTIONVAULT_MCP_ALLOWED_HOSTS`. Host/Origin checks, a request-rate bound, input validation and bounded source fetches are implemented.
 - Tools do not access accounts, billing records, private enquiries, passwords, local files outside the configured catalog, or provider credentials. They do not deploy, send messages, or submit paid generations.
 - The source fetcher rejects redirects, cross-origin assets, oversized responses and invalid source payloads. Tool output and third-party page content remain data, not agent instructions.
 - HTML inspection accepts a bounded source string and never executes it. Asset/dependency/provenance checks inspect supplied declarations; they do not read arbitrary local files, download arbitrary URLs, validate C2PA chains, run a browser, certify accessibility, or independently establish legal rights. Missing evidence remains unverified.
 - React Bits' [MIT + Commons Clause license](https://raw.githubusercontent.com/DavidHDev/react-bits/main/LICENSE.md) restricts selling/redistributing its components, bundles and ports. Use it as interaction research; exclude its source from this commercial template library. Review each media/font license separately from repository code.
 
-The SDK is pinned to its v1 maintenance line and targets its supported2025-11-25 MCP protocol compatibility. No support for a later protocol revision is implied.
+The SDK is pinned to its v1 maintenance line and targets its supported 2025-11-25 MCP protocol compatibility. No support for a later protocol revision is implied.
 
 ## Verify
 
@@ -103,4 +173,6 @@ Tests cover actual SDK stdio and Streamable HTTP clients, all new tool behavior,
 
 `npm run capabilities` regenerates six role guides and static capability metadata from the real tool registry, skill frontmatter and agent definitions. `npm run check` fails if the JSON is stale. Website builders can read that JSON directly without installing the SDK or Zod; its `counts` object and `tools`/`skills`/`agents` arrays are the source for displayed capability counts. It describes package capabilities, not the separate catalog's current item count.
 
-Server/tool/skill code is MIT licensed. MotionVault template prompts, artwork and exported source have the [MotionVault end-project license](https://motionvault.site/license). The public package contains catalog metadata and build prompts; it does not redistribute the photographic/film asset library. Font and third-party dependency licenses remain their own.
+Server/tool/skill code is MIT licensed. MotionVault template prompts, artwork, brand assets, screenshots and exported source have the [MotionVault end-project license](https://motionvault.site/license); the code license does not license the media collection. The public package contains catalog metadata and free build prompts. Premium prompts/source are retrieved only after authorisation. It does not redistribute the full photographic/film asset library. Font and third-party dependency licenses remain their own.
+
+Built by [MotionVault](https://motionvault.site) · Publisher [Like a King Inc.](https://likeakinginc.com) · Developer [Davidio](https://davidio.dev)

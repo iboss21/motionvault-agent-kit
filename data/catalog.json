@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-10-15T23:18:01.208Z",
+  "generatedAt": "2026-10-16T00:11:30.554Z",
   "templates": [
     {
       "id": "aviation-mountain-rescue-foundation",
@@ -30,7 +30,6 @@
         "chapter": "A light worth following.",
         "description": "For the people who choose to keep looking.\nAt the edge of visibility."
       },
-      "prompt": "Build the complete original HALO Nightwatch cinematic foundation website around the supplied native rain-soaked rescue-pilot portrait. Huge cream editorial serif headline left, cool mountain atmosphere and amber searchlight right, restrained weather overlays and real native reversible five-chapter scroll. Use actual supplied video when available, and otherwise identify the work as an image-led concept. Include mission, human perspective, preparation, field values, foundation involvement, real keyboard FAQ, useful project enquiry form with truthful local-draft fallback, navigation, mobile/reduced-motion/pause, complete source and intact native assets/provenance. Fictional foundation: no live emergency dispatch, invented missions, certifications, donation processing, endorsements or response-time claims.",
       "assets": [
         {
           "url": "/cinematic/halo-native.png",
@@ -76,7 +75,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "film-nocturnal-fashion-film-studio",
@@ -106,7 +106,6 @@
         "chapter": "Presence without excess.",
         "description": "One silhouette. An unfamiliar world.\nFashion films with a point of view."
       },
-      "prompt": "Build the original complete ONYX Cold Front fashion-image-house website with the supplied native full-length adult model photograph: sculptural black coat, windblown hem, reflective arctic runway and monumental ice. Giant restrained uppercase fashion typography and a dark editorial document, genuine native reversible five-stage camera/typography chapters and actual supplied film when available. Include collection reading, three creative studies, movement/material direction, production process, collaboration brief, keyboard FAQ and functioning enquiry draft. Complete responsive/source/native asset delivery. A fictional image house and concept wardrobe, not a real apparel store: no fake products, prices, checkout, clients, awards or sustainability certifications.",
       "assets": [
         {
           "url": "/cinematic/onyx-native.png",
@@ -152,7 +151,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "ocean-bioluminescence-exhibition",
@@ -181,7 +181,6 @@
         "chapter": "Look closer. Leave lighter.",
         "description": "An imagined encounter with the deep ocean.\nLight, scale, and a world beyond the surface."
       },
-      "prompt": "Build the complete original THALASSA Below marine-exhibition website around the supplied native cinematic deep-sea diver and bioluminescent organisms. Deep indigo/black atmosphere, restrained cyan edge light, oversized elegant ivory serif copy on left, gentle original particle depth and true native reversible five-stage scroll. Use supplied real film when available; do not fake additional independently filmed shots with crops. Include exhibition idea, deep-ocean perspective, three audience chapters, light interpretation, visitor/access planning, partnership process, keyboard FAQ, real enquiry draft and full source/mobile/reduced-motion/pause. Clearly a fictional exhibition proposal, not a bookable dive operation or an existing scientific discovery; no invented field data, venues, ticket sales or conservation claims.",
       "assets": [
         {
           "url": "/cinematic/thalassa-native.png",
@@ -223,7 +222,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "sculpture-sand-cast-glass-column",
@@ -258,7 +258,6 @@
         "headline": "Light,\nheld.",
         "description": "A study in translucency, material and the beautiful imperfection of casting."
       },
-      "prompt": "An original complete cast-glass sculpture studio website. Real WebGL signed-distance geometry renders a ten-fluted twisted glass column with optical collars, spectral reflections, studio illumination and a pedestal. Native reversible five-stage scroll changes the camera viewpoint and construction. A working light-level control, material notes, fabrication process, installation planning, FAQ and local enquiry-draft form complete the website. No photographic assets, third-party models, false certifications or fabricated product claims.",
       "assets": [
         {
           "url": "/procedural/optics.png",
@@ -308,7 +307,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "lighting-kinetic-ceiling-sculpture",
@@ -343,7 +343,6 @@
         "headline": "A system\nin balance.",
         "description": "Spatial studies in suspension, relationship and slow, deliberate movement."
       },
-      "prompt": "An original complete kinetic lighting practice website. Real WebGL geometry renders seven suspended metallic bodies, a central machined sphere and three differently inclined thin orbital rings. Five reversible native-scroll scenes orbit, elevate and reveal the assembly. A real assembled/exploded control changes the three-dimensional geometry. Include suspension, motion principles, spatial planning, commission stages, technical questions, and a truthful downloadable enquiry draft. No outside textures/models or pretend film footage.",
       "assets": [
         {
           "url": "/procedural/orbital.png",
@@ -393,7 +392,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "architecture-monolithic-coastal-chapel",
@@ -428,7 +428,6 @@
         "headline": "The shape\nof stillness.",
         "description": "An unbuilt place for a slower encounter with light, stone and the horizon."
       },
-      "prompt": "An original complete architectural practice website for an explicitly unbuilt monolithic coastal chapel study. True WebGL raymarched limestone architecture, five subtracted vaulted openings, a stone plinth and a luminous vertical light blade. Five native reversible scroll stages move the camera from oblique arrival through the nave to the inner room. A Dawn/Noon control changes the light study. Useful spatial concept, route, materials, environmental questions, design process, FAQ and working enquiry-draft form. Never claim a built project, approved structure or actual engineering performance.",
       "assets": [
         {
           "url": "/procedural/architecture.png",
@@ -478,7 +477,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "ronin-studio",
@@ -507,7 +507,6 @@
         "headline": "Silence is\na statement.",
         "description": "Identity. Digital. The space in between.\nFor those who would rather be felt than heard."
       },
-      "prompt": "Build an original atmospheric cinematic studio website called Ronin. A full-bleed crimson wall and a hooded adult occupy the film frame. Set huge cream editorial serif typography on the left, tiny monospaced edge credits, interactive ember trails, a pointer-lit reveal, subtle film grain and scroll-driven pinned chapters. Deliver a complete responsive accessible website with real navigation and reduced-motion support.",
       "assets": [
         {
           "url": "/cinematic/ronin.webp",
@@ -553,7 +552,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "whiteout-optics",
@@ -584,7 +584,6 @@
         "headline": "WHITEOUT",
         "description": "Engineered for the edge of everything.\nA clearer view of what comes next."
       },
-      "prompt": "Build an original premium cinematic ski-optics website. Photoreal full-frame alpine portrait, crisp snow, giant black WHITEOUT typography across the bottom, tiny technical monospace labels and restrained optical crosshairs. Real pinned scroll chapters push into the portrait, transition through a circular optical mask and reveal product storytelling. Add subtle snow, real pointer parallax, optional frame-scrubbed video, and accessible responsive navigation.",
       "assets": [
         {
           "url": "/cinematic/alpine.webp",
@@ -638,7 +637,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "nexus-09",
@@ -667,7 +667,6 @@
         "headline": "NEXUS—09\nSPATIAL\nDESIGNER",
         "description": "Building the things you haven’t felt yet.\nSpatial experiences. Human possibilities."
       },
-      "prompt": "Create an original cinematic spatial-designer portfolio in deep black and electric blue. Full-frame photoreal VR portrait occupies the right, a dark left gradient supports enormous thin extended techno typography, with tiny optical HUD marks, a glass technical-spec grid and restrained tracking motion. Use real pointer parallax, scroll-revealed film chapters and optional video, with complete responsive navigation and reduced-motion support.",
       "assets": [
         {
           "url": "/cinematic/nexus.webp",
@@ -713,7 +712,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "eden-impossible-worlds",
@@ -741,7 +741,6 @@
         "headline": "Somewhere\nbeyond possible.",
         "description": "Worlds imagined. Possibilities made real.\nA voyage into everything that could be."
       },
-      "prompt": "Build an original immersive cinematic world-building website called Eden. A photoreal impossible moss-covered island floats over still black water in warm volumetric light. Elegant huge white italic editorial type is centered above the island, with tiny expedition coordinates and minimal transparent controls. Use real pointer-driven camera drift, floating pollen, film grain, pinned scroll chapters and restrained optical transitions. Complete responsive accessible site, original artwork and composition.",
       "assets": [
         {
           "url": "/cinematic/eden.webp",
@@ -783,7 +782,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "vanta-gt",
@@ -811,7 +811,6 @@
         "headline": "VANTA / GT",
         "description": "The edge of performance.\nThe absence of compromise."
       },
-      "prompt": "Create an original cinematic automotive website for fictional Vanta GT. Full-frame dark studio photography of a sculptural silver-black hypercar, hard red rim lighting, colossal condensed clean white typography, tiny engineering credits and a restrained red rule. Pointer camera drift, atmospheric dust, scroll-driven camera push and pinned chapter transitions. Build a complete responsive accessible premium website with original artwork.",
       "assets": [
         {
           "url": "/cinematic/vanta.webp",
@@ -853,7 +852,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "selene-afterlight",
@@ -881,7 +881,6 @@
         "headline": "Afterlight.\nBefore\neverything.",
         "description": "Past the edge of the familiar.\nInto a different kind of silence."
       },
-      "prompt": "Build an original cinematic cosmic editorial experience called Selene Afterlight. A photoreal astronaut floats above a planet horizon in a deep black universe, with warm golden rim lighting and elegant white italic movie-poster typography. Minimal monospaced mission credits, subtle star dust, real pointer parallax and scroll-pinned chapter fades. Complete responsive accessible website, original media, no decorative cards.",
       "assets": [
         {
           "url": "/cinematic/selene.webp",
@@ -923,7 +922,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "magma-foundry",
@@ -954,7 +954,6 @@
         "chapter": "Nothing ordinary survives.",
         "description": "An independent foundry for extraordinary identities.\nStrategy. Sculpture. Digital experiences."
       },
-      "prompt": "Build a complete original cinematic design-studio website for MAGMA Foundry. Use the supplied original photograph of a molten-amber chrome ribbon sculpture on obsidian, with near-black space on the left. Set editorial cream type beside the sculpture, precise workshop coordinates, warm optical glow and restrained ember trails. Author three scroll chapters: the initial sculpture, material and process studies, then selected identities and an enquiry form. Use pointer-driven lighting, a pinned image reveal, tactile motion and honest responsive navigation. Include accessible play/pause, reduced motion, a local/demo enquiry fallback, editable project stories, and complete standalone source. Preserve the original material-led art direction; do not substitute generic corporate sections.",
       "assets": [
         {
           "url": "/cinematic/magma.webp",
@@ -1000,7 +999,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "sable-expeditions",
@@ -1031,7 +1031,6 @@
         "chapter": "The wild knows your name.",
         "description": "Dunes without borders. Days without a script.\nExtraordinary desert journeys, intimately considered."
       },
-      "prompt": "Create a complete original cinematic expedition website for SABLE using the supplied black Arabian horse photograph in bronze dunes at sunset. Preserve its realistic anatomy, wind-swept mane and dark negative space. Make the opening feel like a travel film: huge refined ivory editorial type, tiny route coordinates, copper light and a long quiet scroll. Author chapters about the dunes, the rhythm of a private journey and expedition field notes; use a pinned horizon transition and fine drifting sand. Include an itinerary section with useful details, real anchor navigation, a private-enquiry form with local/demo fallback, responsive typography, keyboard access, reduced motion and standalone source. Use original travel copy and images rather than generic agency cards.",
       "assets": [
         {
           "url": "/cinematic/sable.webp",
@@ -1077,7 +1076,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "aru-wild-sanctuary",
@@ -1108,7 +1108,6 @@
         "chapter": "Some stories have wings.",
         "description": "A sanctuary for extraordinary encounters.\nDiscover the living world. Leave it more alive."
       },
-      "prompt": "Build a complete original cinematic rainforest-sanctuary website for ARU. Its supplied original hero photo is an anatomically accurate scarlet macaw on a wet mossy branch, dramatic emerald forest and warm mist, with dark left negative space. Use elegant large ivory serif typography, observational field-note microcopy, conservation stories and quiet pointer parallax. Author a three-stage scroll journey from the canopy to species field notes to visiting responsibly, with layered foliage reveals and restrained drifting light. Include genuine section anchors, clear visit/enquiry controls, a contact form with a local/demo fallback, a useful conservation-information section, responsive layout, pause controls and reduced motion. Keep wildlife visually truthful and do not invent specific impact claims or real organizational affiliations.",
       "assets": [
         {
           "url": "/cinematic/aru.webp",
@@ -1154,7 +1153,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "monolith-architecture",
@@ -1185,7 +1185,6 @@
         "chapter": "Space is the true material.",
         "description": "Measured in light. Grounded in place.\nBuildings that hold a different kind of presence."
       },
-      "prompt": "Build a complete original cinematic architecture practice website for MONOLITH using the supplied photograph of a monumental cantilevered concrete building beside still water at blue hour. Preserve the warm vertical light slit, rough board-formed concrete and dark left typography space. Use a precise extended architectural type system, fine drawing coordinates and warm amber accents. Author project chapters on mass, light and inhabitation; use controlled scroll cropping, a split-plane reveal and pointer-based perspective drift. Include project summaries with fictional sample details clearly editable, practice information, real section navigation and an enquiry form with local/demo fallback. Deliver responsive accessible standalone source, pause/reduced-motion support and a carefully authored spatial identity.",
       "assets": [
         {
           "url": "/cinematic/monolith.webp",
@@ -1231,7 +1230,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "nacre-eau-de-profondeur",
@@ -1261,7 +1261,6 @@
         "chapter": "Depth leaves an impression.",
         "description": "Mineral light. Salt on skin. A quiet intensity.\nAn imagined fragrance with an unmistakable presence."
       },
-      "prompt": "Create a complete original cinematic luxury-fragrance website for the fictional NACRE Eau de Profondeur. Use the supplied original underwater photograph of a blank clear sculptural perfume bottle, pearl-silver cap, golden liquid, stone plinth and midnight teal water. Use exceptionally refined ivory editorial typography on the dark left, elegant negative space and subtle caustic-light movement. Author distinct scroll chapters about the opening impression, a clearly fictional notes pyramid and the glass object itself; transition with a fluid optical mask and measured product-detail reveals. Include a product specification section, discovery/enquiry form with local/demo fallback, accessible navigation, responsive design, reduced motion and exportable standalone source. Do not imply an active checkout, real formulation, safety claim or named brand affiliation.",
       "assets": [
         {
           "url": "/cinematic/nacre.webp",
@@ -1303,7 +1302,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "kuro-after-hours",
@@ -1333,7 +1333,6 @@
         "chapter": "The city belongs to motion.",
         "description": "Move through the quiet. Make your own rhythm.\nTechnical layers for a life beyond the expected."
       },
-      "prompt": "Build a complete original cinematic technical-apparel editorial website for fictional KURO After Hours. Use the supplied original night portrait of an adult athlete in a wet black ripstop jacket, violet rim light, realistic skin and mist, with black negative space at left. Use enormous condensed off-white typography, tiny reflective seam coordinates and restrained lilac highlights. Author three scroll chapters: night movement, material construction and a fictional collection field guide. Use rhythmic image reveals, a measured shutter transition, texture close-ups when supplied and pointer-controlled light. Include useful garment sample information, responsive navigation, a contact/discovery form with a local/demo fallback, pause/reduced motion and complete standalone HTML source. No fake ecommerce checkout or invented performance certifications.",
       "assets": [
         {
           "url": "/cinematic/kuro.webp",
@@ -1375,7 +1374,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "aion-chronometry",
@@ -1406,7 +1406,6 @@
         "description": "An independent study in precision.\nMechanical timekeeping, stripped to its essence.",
         "chapter": "Every second, considered."
       },
-      "prompt": "Create a complete original cinematic website for Aion / Chronometry. Use the supplied original image of a skeleton titanium timepiece over black water. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/aion.png",
@@ -1452,7 +1451,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "sono-acoustic-worlds",
@@ -1483,7 +1483,6 @@
         "description": "Sculptural sound for extraordinary spaces.\nAn exploration of resonance, material, and silence.",
         "chapter": "Feel what you cannot see."
       },
-      "prompt": "Create a complete original cinematic website for Sono / Acoustic Worlds. Use the supplied original image of a monumental brushed aluminum acoustic horn in a red chamber. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/sono.png",
@@ -1529,7 +1528,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "terra-objects",
@@ -1560,7 +1560,6 @@
         "description": "Small rituals. Lasting objects.\nHandmade ceramics shaped by light and touch.",
         "chapter": "Made slowly. Kept forever."
       },
-      "prompt": "Create a complete original cinematic website for Terra / Objects. Use the supplied original image of handmade black clay vessels on limestone under a beam of sun. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/terra.png",
@@ -1606,7 +1605,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "abyss-living-light",
@@ -1637,7 +1637,6 @@
         "description": "An immersive encounter with living light.\nA quiet invitation into the unknown ocean.",
         "chapter": "The dark is full of life."
       },
-      "prompt": "Create a complete original cinematic website for Abyss / Living Light. Use the supplied original image of a luminous translucent jellyfish in the midnight ocean. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/abyss.png",
@@ -1683,7 +1682,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "prism-light-practice",
@@ -1714,7 +1714,6 @@
         "description": "Spaces measured in atmosphere.\nA practice at the intersection of light and form.",
         "chapter": "An architecture of feeling."
       },
-      "prompt": "Create a complete original cinematic website for Prism / Light Practice. Use the supplied original image of a monumental amber portal in a concrete corridor above still water. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/prism.png",
@@ -1760,7 +1759,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "velo-track-division",
@@ -1791,7 +1791,6 @@
         "description": "A single purpose. An unbroken line.\nPrecision track machines for a different rhythm.",
         "chapter": "Built around the ride."
       },
-      "prompt": "Create a complete original cinematic website for Velo / Track Division. Use the supplied original image of a sculptural carbon track bicycle in a black studio with red rim light. The package also includes an original six-second generated silent film; preserve its subject movement, material light, and composition. Preserve the quiet left typography space, realistic material detail, physical lighting, and immersive scale. Build a native pinned scroll story with five distinct progress states, a readable editorial display system, restrained pointer lighting, and an authored release into useful subject-specific content. Include three detailed chapters, a working enquiry form with a documented endpoint, meaningful navigation, mobile composition, reduced motion, pause, and a complete offline source package with media, fonts and licenses. Distinguish camera animation over a photograph from generated subject footage. Do not invent performance certifications, scientific claims, checkout behavior or brand affiliations.",
       "assets": [
         {
           "url": "/cinematic/velo.png",
@@ -1837,7 +1836,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "sculpture-molten-silver-ribbon",
@@ -1869,7 +1869,6 @@
         "description": "A continuous gesture in silver and light.\nOriginal objects. Considered spaces.",
         "chapter": "A line with a life of its own."
       },
-      "prompt": "Build the complete original Forma Silver Ribbon sculpture-studio website using the supplied three independent photographs: a single-twist silver-ribbon hero, a separately photographed hand-polished edge macro, and the finished work in a concrete gallery. Preserve source/preview parity, the original live serif composition, and a native pinned sequence that moves from hero to material detail to architectural finale and holds the closing view. Deliver the complete studio story, object reading, materials, three-stage commission process, installation context, practical FAQ, contact form, navigation, responsive layouts, pause, reduced motion, and locally bundled media/fonts/licenses. Use the actual provided sculpture content. Identify this as a fictional commission study; do not invent silver purity, dimensions, clients, testimonials, awards, prices, structural approvals, or real subject footage.",
       "assets": [
         {
           "url": "/cinematic/forma-silver-hero.png",
@@ -1919,7 +1918,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "sculpture-basalt-balancing-totem",
@@ -1951,7 +1951,6 @@
         "description": "Four forms. One quiet gesture.\nA study in weight, contact, and stillness.",
         "chapter": "A quiet kind of tension."
       },
-      "prompt": "Build the complete original Forma Held in Balance sculpture website from the supplied three independently generated photographs: a four-stone volcanic totem in cold gallery light, an intimate macro of the actual contact/material, and a separate coastal-pavilion installation. Use monumental condensed typography and precise blue-grey marginal labels. Native scroll must transition through the actual three images in a forward narrative, preserve a stable closing scene, and reveal useful original stone/installation content. Include object reading, material story, three-stage commission process, installation context, practical FAQ, working enquiry form, source/media/font/license bundle, responsive layouts, pause, and reduced motion. This is a fictional sculpture study; do not invent engineering approvals, safe balancing claims, weather ratings, dimensions, customers, awards, or film footage.",
       "assets": [
         {
           "url": "/cinematic/forma-basalt-hero.png",
@@ -2001,7 +2000,8 @@
           "url": "/cinematic/fonts/LICENSE-BodoniModa.txt",
           "path": "assets/fonts/LICENSE-BodoniModa.txt"
         }
-      ]
+      ],
+      "promptLocked": true
     },
     {
       "id": "aether-studio",
@@ -2020,8 +2020,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive websites experience called Aether Studio. Liquid chrome. Limitless possibilities.. Art direction: #e9e8e4 canvas with #ff7043 accents, confident typography, deliberate whitespace, and a distinctive chrome composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Three.js. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "forme-editorial",
@@ -2040,8 +2040,8 @@
       "free": true,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive websites experience called Forme Editorial. An independent point of view.. Art direction: #ed3537 canvas with #ee3435 accents, confident typography, deliberate whitespace, and a distinctive editorial composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "prompt": "Create an original responsive websites experience called Forme Editorial. An independent point of view.. Art direction: #ed3537 canvas with #ee3435 accents, confident typography, deliberate whitespace, and a distinctive editorial composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links."
     },
     {
       "id": "onda-product",
@@ -2060,8 +2060,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive websites experience called Onda Product. Good sound. Better energy.. Art direction: #eaf0dd canvas with #c4ef4a accents, confident typography, deliberate whitespace, and a distinctive lime composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "beyond-the-fold",
@@ -2080,8 +2080,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive scroll experience called Beyond the Fold. A cinematic journey through altitude.. Art direction: #25382f canvas with #deeea3 accents, confident typography, deliberate whitespace, and a distinctive parallax composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS / Scroll. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "frame-shift",
@@ -2100,8 +2100,8 @@
       "free": false,
       "featured": false,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive scroll experience called Frame Shift. A horizontal playground for visual stories.. Art direction: #f1f0e9 canvas with #edff72 accents, confident typography, deliberate whitespace, and a distinctive gallery composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "paper-trail",
@@ -2120,8 +2120,8 @@
       "free": true,
       "featured": false,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive scroll experience called Paper Trail. Stories that unfold one layer at a time.. Art direction: #d4c6f0 canvas with #ad8ef0 accents, confident typography, deliberate whitespace, and a distinctive stack composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "prompt": "Create an original responsive scroll experience called Paper Trail. Stories that unfold one layer at a time.. Art direction: #d4c6f0 canvas with #ad8ef0 accents, confident typography, deliberate whitespace, and a distinctive stack composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links."
     },
     {
       "id": "shape-theory",
@@ -2140,8 +2140,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive 3d & webgl experience called Shape Theory. Playful forms with a serious sense of space.. Art direction: #eeeae1 canvas with #2854e8 accents, confident typography, deliberate whitespace, and a distinctive objects composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Three.js. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "satellite",
@@ -2160,8 +2160,8 @@
       "free": false,
       "featured": false,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive 3d & webgl experience called Satellite. A little closer to the extraordinary.. Art direction: #10142c canvas with #cdd8ff accents, confident typography, deliberate whitespace, and a distinctive orbit composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Three.js. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "orbit-one",
@@ -2180,8 +2180,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive 3d & webgl experience called Orbit One. A sculptural encounter in an electric world.. Art direction: #4227b8 canvas with #ff9bce accents, confident typography, deliberate whitespace, and a distinctive torus composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Three.js. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "electric-type",
@@ -2200,8 +2200,8 @@
       "free": false,
       "featured": true,
       "format": "16:9 · Video ready",
-      "prompt": "Create an original responsive motion graphics experience called Electric Type. Big words. Bigger energy.. Art direction: #b8a2e5 canvas with #ceff62 accents, confident typography, deliberate whitespace, and a distinctive kinetic composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Canvas. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "signal-loop",
@@ -2220,8 +2220,8 @@
       "free": true,
       "featured": false,
       "format": "16:9 · Video ready",
-      "prompt": "Create an original responsive motion graphics experience called Signal Loop. Make your next announcement impossible to miss.. Art direction: #171915 canvas with #e6fd52 accents, confident typography, deliberate whitespace, and a distinctive type composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Canvas. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "prompt": "Create an original responsive motion graphics experience called Signal Loop. Make your next announcement impossible to miss.. Art direction: #171915 canvas with #e6fd52 accents, confident typography, deliberate whitespace, and a distinctive type composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Canvas. Build the complete working experience, with production-quality interaction and no placeholder links."
     },
     {
       "id": "soft-assembly",
@@ -2240,8 +2240,8 @@
       "free": false,
       "featured": false,
       "format": "16:9 · Video ready",
-      "prompt": "Create an original responsive motion graphics experience called Soft Assembly. A playful study in continuous movement.. Art direction: #f1d9c9 canvas with #ff643c accents, confident typography, deliberate whitespace, and a distinctive ribbon composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Canvas. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "tidal-surface",
@@ -2260,8 +2260,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive backgrounds experience called Tidal Surface. An endless rhythm, beneath the surface.. Art direction: #4087df canvas with #c3edff accents, confident typography, deliberate whitespace, and a distinctive ripple composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use WebGL / GLSL. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "color-field",
@@ -2280,8 +2280,8 @@
       "free": true,
       "featured": false,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive backgrounds experience called Color Field. A living gradient with a mind of its own.. Art direction: #ec9eac canvas with #ff98a7 accents, confident typography, deliberate whitespace, and a distinctive mesh composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use WebGL / GLSL. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "prompt": "Create an original responsive backgrounds experience called Color Field. A living gradient with a mind of its own.. Art direction: #ec9eac canvas with #ff98a7 accents, confident typography, deliberate whitespace, and a distinctive mesh composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use WebGL / GLSL. Build the complete working experience, with production-quality interaction and no placeholder links."
     },
     {
       "id": "particle-drift",
@@ -2300,8 +2300,8 @@
       "free": false,
       "featured": false,
       "format": "Responsive · Website",
-      "prompt": "Create an original responsive backgrounds experience called Particle Drift. A quiet constellation of moving possibilities.. Art direction: #182b23 canvas with #cbf4a1 accents, confident typography, deliberate whitespace, and a distinctive particles composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use Canvas. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "bento-sequence",
@@ -2320,8 +2320,8 @@
       "free": false,
       "featured": true,
       "format": "Responsive · Component",
-      "prompt": "Create an original responsive components experience called Bento Sequence. Small moments. Perfectly put together.. Art direction: #eeeaf4 canvas with #b39afa accents, confident typography, deliberate whitespace, and a distinctive cards composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     },
     {
       "id": "magnetic-attraction",
@@ -2340,8 +2340,8 @@
       "free": true,
       "featured": false,
       "format": "Responsive · Component",
-      "prompt": "Create an original responsive components experience called Magnetic Attraction. A button with a little extra pull.. Art direction: #f1ede5 canvas with #ec4c3e accents, confident typography, deliberate whitespace, and a distinctive magnetic composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "prompt": "Create an original responsive components experience called Magnetic Attraction. A button with a little extra pull.. Art direction: #f1ede5 canvas with #ec4c3e accents, confident typography, deliberate whitespace, and a distinctive magnetic composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links."
     },
     {
       "id": "depth-cards",
@@ -2360,8 +2360,8 @@
       "free": false,
       "featured": false,
       "format": "Responsive · Component",
-      "prompt": "Create an original responsive components experience called Depth Cards. Give your ideas another dimension.. Art direction: #213427 canvas with #c5f36a accents, confident typography, deliberate whitespace, and a distinctive hero composition. Include accessible navigation, responsive layouts, reduced-motion support, and polished animation. Use CSS. Build the complete working experience, with production-quality interaction and no placeholder links.",
-      "assets": []
+      "assets": [],
+      "promptLocked": true
     }
   ],
   "designAssets": [

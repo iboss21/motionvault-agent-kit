@@ -28,8 +28,9 @@ export async function loadCatalog(path = new URL('../data/catalog.json', import.
   const parsed = JSON.parse(raw);
   const result = catalogSchema.parse(Array.isArray(parsed) ? {templates:parsed} : parsed);
   if (new Set(result.templates.map(item=>item.id)).size !== result.templates.length) throw new Error('Catalog contains duplicate IDs.');
-  return result;
+  return sanitizeCatalog(result);
 }
+export function sanitizeCatalog(catalog){return {...catalog,templates:catalog.templates.map(item=>{const {prompt,...rest}=item;return {...rest,...(item.free===true?{prompt}:{promptLocked:true})};})};}
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 const rounded = value => Math.round(value*10000)/10000;
 const mediaKind = item => item.procedural ? 'gpu-shader' : item.cinematic?.video ? 'generated-video' : item.cinematic ? 'photo-with-runtime' : item.engine.includes('GLSL') ? 'gpu-shader' : item.engine.includes('Three') ? 'three-geometry' : item.engine.includes('Canvas') ? 'canvas' : 'css';
@@ -41,9 +42,10 @@ export function assetManifest(item, base) {
 }
 
 /** Fetch only a fixed public endpoint; no arbitrary URLs, credentials, or redirects. */
-export async function fetchSource(base,id,{fetchImpl=fetch,maxBytes=1_000_000,timeoutMs=8000}={}) {
+async function fetchDocument(base,id,kind,{fetchImpl=fetch,maxBytes=1_000_000,timeoutMs=8000,apiKey=''}={}) {
   idSchema.parse(id);const origin=configuredOrigin(base);
-  const response=await fetchImpl(`${origin}/api/agent/templates/${encodeURIComponent(id)}/source`,{redirect:'error',signal:AbortSignal.timeout(timeoutMs),headers:{Accept:'application/json'}});
+  if(apiKey&&!/^mv_read_[A-Za-z0-9_-]{43}$/.test(apiKey))throw new Error('MOTIONVAULT_API_KEY must be a personal scoped read key.');
+  const response=await fetchImpl(`${origin}/api/agent/templates/${encodeURIComponent(id)}/${kind}`,{redirect:'error',signal:AbortSignal.timeout(timeoutMs),headers:{Accept:'application/json',...(apiKey?{Authorization:`Bearer ${apiKey}`}:{})}});
   if(!response.ok)throw new Error(`MotionVault source service returned HTTP ${response.status}.`);
   if(!response.headers.get('content-type')?.includes('application/json'))throw new Error('Source service must return JSON.');
   if(Number(response.headers.get('content-length')||0)>maxBytes){await response.body?.cancel();throw new Error('Source response exceeds the byte limit.');}
@@ -51,8 +53,17 @@ export async function fetchSource(base,id,{fetchImpl=fetch,maxBytes=1_000_000,ti
   const chunks=[];let total=0;const reader=response.body.getReader();
   try{while(true){const {done,value}=await reader.read();if(done)break;total+=value.byteLength;if(total>maxBytes){await reader.cancel();throw new Error('Source response exceeds the byte limit.');}chunks.push(Buffer.from(value));}}finally{reader.releaseLock();}
   const data=JSON.parse(Buffer.concat(chunks).toString('utf8'));
+  return data;
+}
+export async function fetchSource(base,id,options={}) {
+  const origin=configuredOrigin(base),data=await fetchDocument(base,id,'source',options);
   if(data.id!==id||typeof data.html!=='string'||!data.html.trim().startsWith('<!doctype html>')||!Array.isArray(data.assets))throw new Error('Source service returned an invalid template document.');
   return {id:data.id,title:String(data.title||id),html:data.html,license:String(data.license||'MotionVault end-project license'),assets:data.assets.map(asset=>({path:String(asset.path||''),url:link(origin,asset.url)}))};
+}
+export async function fetchPrompt(base,id,options={}){
+  const data=await fetchDocument(base,id,'prompt',options);
+  if(data.templateId!==id||typeof data.prompt!=='string'||!data.prompt.trim())throw new Error('Prompt service returned an invalid document.');
+  return data;
 }
 
 export function contrastRatio(foreground,background){
@@ -79,16 +90,16 @@ const stories={
  'world-transition':[['Establish world','Compose a dominant environment and clear headline'],['Discover boundary','Travel toward an authored section boundary'],['Reveal second world','Introduce different environment/light/materials with a planned transition'],['Resolve expedition','Release into useful feature or project content']],
 };
 
-export function createToolset(catalog,{baseUrl='http://localhost:5188',fetchImpl=fetch}={}){
+export function createToolset(catalog,{baseUrl='http://localhost:5188',fetchImpl=fetch,apiKey=''}={}){
   const base=configuredOrigin(baseUrl),items=catalog.templates,designAssets=catalog.designAssets||[];
   const get=id=>{const found=items.find(item=>item.id===id);if(!found)throw new Error(`Unknown template: ${id}`);return found};
   const definitions=[];const add=(name,description,inputSchema,run)=>definitions.push({name,description,inputSchema:z.object(inputSchema).strict(),run});
   add('search_templates','Search original template, style, background, gradient or UI libraries using words and bounded filters.',{query:z.string().max(200).default(''),library:z.enum(['templates','all','styles','backgrounds','gradients','ui']).default('templates'),category:z.string().max(80).optional(),engine:z.string().max(100).optional(),mediaKind:z.enum(['generated-video','photo-with-runtime','gpu-shader','three-geometry','canvas','css']).optional(),free:z.boolean().optional(),limit:z.number().int().min(1).max(50).default(12),offset:z.number().int().min(0).max(10000).default(0)},({query,library,category,engine,mediaKind:kind,free,limit,offset})=>{const words=query.toLowerCase().split(/\s+/).filter(Boolean);const matches=['templates','all'].includes(library)?items.filter(t=>(!category||t.category===category)&&(!engine||t.engine===engine)&&(!kind||mediaKind(t)===kind)&&(free===undefined||t.free===free)&&words.every(word=>`${t.title} ${t.subtitle} ${t.category} ${t.engine} ${t.tags.join(' ')}`.toLowerCase().includes(word))):[];const assets=library!=='templates'&&!engine&&!kind&&free===undefined?designAssets.filter(a=>(library==='all'||a.library===library)&&(!category||a.category===category)&&words.every(word=>`${a.title} ${a.description} ${a.category||''} ${a.tags.join(' ')}`.toLowerCase().includes(word))):[];const combined=[...matches.map(t=>({kind:'template',data:publicItem(t)})),...assets.map(({source,designMd,...a})=>({kind:'asset',data:a}))].slice(offset,offset+limit);return{total:matches.length+assets.length,offset,templates:combined.filter(a=>a.kind==='template').map(a=>a.data),assets:combined.filter(a=>a.kind==='asset').map(a=>a.data),facets:{libraries:['templates',...new Set(designAssets.map(a=>a.library))],categories:[...new Set(items.map(t=>t.category))],engines:[...new Set(items.map(t=>t.engine))]}}});
   add('get_template','Get one original template and precise media capabilities.',{id:idSchema},({id})=>({...publicItem(get(id)),links:{preview:`${base}/preview/${id}`,playground:`${base}/templates/${id}`}}));
   add('compare_templates','Compare 2–5 templates by engine, source media, style and formats.',{ids:z.array(idSchema).min(2).max(5)},({ids})=>({templates:[...new Set(ids)].map(id=>{const t=get(id);return{id,title:t.title,category:t.category,engine:t.engine,mediaKind:mediaKind(t),tags:t.tags,format:t.format,hasRealVideo:Boolean(t.cinematic?.video),assetCount:assetManifest(t,base).length}})}));
-  add('get_build_prompt','Return an original template build prompt with bounded user customization.',{id:idSchema,brief:z.string().max(2000).optional(),headline:z.string().max(160).optional(),accent:color.optional()},({id,brief,headline,accent})=>{const t=get(id);return{id,prompt:[t.prompt,brief&&`Additional user brief: ${brief}`,headline&&`Live headline: ${headline}`,accent&&`Accent: ${accent}`,guidelines.mediaTruth,'Verify actual standalone source, fonts, mobile composition and encoded outputs.'].filter(Boolean).join('\n\n')}});
+  add('get_build_prompt','Read an authorised original prompt, with bounded customization. Premium prompts need membership or an already redeemed pack choice; this tool never spends a credit.',{id:idSchema,brief:z.string().max(2000).optional(),headline:z.string().max(160).optional(),accent:color.optional()},async({id,brief,headline,accent})=>{const t=get(id),prompt=t.free===true&&t.prompt?t.prompt:(await fetchPrompt(base,id,{fetchImpl,apiKey})).prompt;return{id,prompt:[prompt,brief&&`Additional user brief: ${brief}`,headline&&`Live headline: ${headline}`,accent&&`Accent: ${accent}`,guidelines.mediaTruth,'Verify actual standalone source, fonts, mobile composition and encoded outputs.'].filter(Boolean).join('\n\n')}});
   add('get_source_links','Get public source, playground, demo and license links without fetching account data.',{id:idSchema},({id})=>{get(id);return{id,source:`${base}/api/agent/templates/${id}/source`,playground:`${base}/templates/${id}`,preview:`${base}/preview/${id}`,license:`${base}/license`}});
-  add('get_template_source','Fetch complete public standalone HTML and asset manifest from the one configured MotionVault origin; 8s/1MB limit.',{id:idSchema},async({id})=>{get(id);return fetchSource(base,id,{fetchImpl})});
+  add('get_template_source','Fetch authorised standalone HTML and assets from the one configured origin; premium source needs membership. 8s/1MB limit.',{id:idSchema},async({id})=>{get(id);return fetchSource(base,id,{fetchImpl,apiKey})});
   add('get_asset_manifest','List original public poster/video/font asset URLs and ZIP paths; no remote media download.',{id:idSchema},({id})=>({id,mediaKind:mediaKind(get(id)),assets:assetManifest(get(id),base)}));
   add('create_cinematic_brief','Compose a concrete photographic/CG asset brief and implementation acceptance criteria.',{name:text(100),subject:text(500),materials:text(500),lighting:text(500),headline:text(160),medium:z.enum(['photograph','photoreal-cgi','generated-film']).default('photoreal-cgi'),subjectCenterX:z.number().min(.5).max(.85).default(.7)},({name,subject,materials,lighting,headline,medium,subjectCenterX})=>({name,assetPrompt:`Create one original cinematic ${medium} for ${name}. Subject: ${subject}. Materials: ${materials}. Lighting: ${lighting}. Wide 16:9, at least 1536px wide. Subject center ${Math.round(subjectCenterX*100)}% across the frame; reserve left 40% quiet negative space for live typography. Believable depth, photographic detail, coherent light. No text, typography, logos or interface baked into media.`,liveHeadline:headline,motionBrief:medium==='generated-film'?'Preserve identity/materials and negative space through one coherent authored shot; specify subject action separately from camera motion.':'Label this as original still artwork with runtime motion unless actual subject footage is generated.',acceptance:guidelines.validation}));
   add('plan_storyboard','Create mechanism-specific four-chapter shots with precise time/frame/progress ranges.',{mechanism:z.enum(Object.keys(stories)),duration:z.number().min(2).max(120).default(12),fps:z.enum(['24','30','60']).default('30')},({mechanism,duration,fps})=>({mechanism,shots:timeline(stories[mechanism].map(([name,action])=>({name,action,weight:1})),duration,Number(fps)),reverseContinuity:'Each progress value must reproduce the same authored state when scrolling backward.'}));
@@ -105,7 +116,7 @@ export function createToolset(catalog,{baseUrl='http://localhost:5188',fetchImpl
   const cssVariables=tokens=>{const declarations=[];const walk=(value,path=[])=>{if(value&&typeof value==='object'&&!Array.isArray(value)){for(const [key,child] of Object.entries(value))walk(child,[...path,key]);}else if(typeof value==='string'||typeof value==='number'){const key=path.join('-').replace(/[^a-z0-9_-]/gi,'-');const safe=String(value).replace(/[;{}<>]/g,'');declarations.push(`  --${key}: ${safe};`);}};walk(tokens);return ':root {\n'+declarations.join('\n')+'\n}'};
   add('get_design_system','Get an original style system, declared tokens and DESIGN.md without copying a reference library.',{id:idSchema},({id})=>{const asset=design(id);return{id,title:asset.title,library:asset.library,tokens:asset.tokens||{},designMd:asset.designMd||`# ${asset.title}\n\n${asset.description}\n\n## Tokens\n\n\`\`\`css\n${cssVariables(asset.tokens||{})}\n\`\`\`\n\nApply these original tokens consistently to typography, spacing, surfaces and states; inspect the resulting UI.`,sourceAvailable:Boolean(asset.source)}});
   add('get_asset_source','Return bundled original asset source, or explicit CSS variables generated from declared style tokens.',{id:idSchema},({id})=>{const asset=design(id);if(!asset.source&&!asset.tokens)throw new Error('This catalog entry does not contain source or style tokens.');return{id,title:asset.title,library:asset.library,language:asset.source?(asset.language||'text'):'css',source:asset.source||cssVariables(asset.tokens),generatedFromTokens:!asset.source,license:asset.license||'MotionVault end-project license'}});
-  registerAdvancedTools(add,{catalog,base,get,mediaKind,fetchSource,fetchImpl,contrastRatio,idSchema});
+  registerAdvancedTools(add,{catalog,base,get,mediaKind,fetchSource:(base,id,options)=>fetchSource(base,id,{...options,apiKey}),fetchImpl,contrastRatio,idSchema});
   return definitions;
 }
 

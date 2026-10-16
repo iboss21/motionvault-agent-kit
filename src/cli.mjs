@@ -5,7 +5,7 @@ import { loadCatalog } from './tools.mjs';
 
 async function main(){
  const args=process.argv.slice(2);
- if(args.includes('--help')){process.stdout.write('motionvault-agent-kit [--stdio | --http] [--port 5190]\nEnvironment: MOTIONVAULT_BASE_URL, MOTIONVAULT_CATALOG_PATH, MOTIONVAULT_MCP_ALLOWED_ORIGINS\n');return}
+ if(args.includes('--help')){process.stdout.write('motionvault-agent-kit [--stdio | --http] [--port 5190]\nEnvironment: MOTIONVAULT_BASE_URL, MOTIONVAULT_CATALOG_PATH, MOTIONVAULT_MCP_ALLOWED_ORIGINS\nPersonal stdio reads: MOTIONVAULT_API_KEY (scoped read key; never commit it). Public HTTP forwards only each caller’s Bearer key.\n');return}
  const allowed=new Set(['--stdio','--http','--port']);
  for(let index=0;index<args.length;index++){if(!allowed.has(args[index]))throw new Error(`Unknown option: ${args[index]}`);if(args[index]==='--port'){if(!/^\d+$/.test(args[index+1]||''))throw new Error('--port requires an integer.');index++;}}
  if(args.includes('--stdio')&&args.includes('--http'))throw new Error('Choose --stdio or --http.');

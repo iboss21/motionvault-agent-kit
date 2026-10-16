@@ -121,7 +121,7 @@
     },
     {
       "name": "get_build_prompt",
-      "description": "Return an original template build prompt with bounded user customization.",
+      "description": "Read an authorised original prompt, with bounded customization. Premium prompts need membership or an already redeemed pack choice; this tool never spends a credit.",
       "inputSchema": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "type": "object",
@@ -149,7 +149,7 @@
         "additionalProperties": false
       },
       "readOnly": true,
-      "network": "none"
+      "network": "configured-source-origin-only"
     },
     {
       "name": "get_source_links",
@@ -173,7 +173,7 @@
     },
     {
       "name": "get_template_source",
-      "description": "Fetch complete public standalone HTML and asset manifest from the one configured MotionVault origin; 8s/1MB limit.",
+      "description": "Fetch authorised standalone HTML and assets from the one configured origin; premium source needs membership. 8s/1MB limit.",
       "inputSchema": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "type": "object",

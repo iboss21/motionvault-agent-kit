@@ -1,0 +1,43 @@
+{
+  "screenshots": [
+    {
+      "file": "motionvault-home.webp",
+      "capturedAt": "2026-10-16T00:17:07.933862+00:00",
+      "source": "http://localhost:5188/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 93716,
+      "method": "Headless native Chrome screenshot; WebP format conversion only"
+    },
+    {
+      "file": "motionvault-library.webp",
+      "capturedAt": "2026-10-16T00:17:12.569267+00:00",
+      "source": "http://localhost:5188/library",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 113840,
+      "method": "Headless native Chrome screenshot; WebP format conversion only"
+    },
+    {
+      "file": "motionvault-halo.webp",
+      "capturedAt": "2026-10-16T00:17:16.963588+00:00",
+      "source": "http://localhost:5188/preview/aviation-mountain-rescue-foundation",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 131216,
+      "method": "Headless native Chrome screenshot; WebP format conversion only"
+    }
+  ],
+  "banner": {
+    "file": "motionvault-banner.webp",
+    "source": "MotionVault public/social-card.png",
+    "bytes": 156954,
+    "method": "WebP format conversion only; official derivative of original OpenAI image_gen cinematic collage plus repo-rendered typography. No external stock or competitor artwork."
+  }
+}
